@@ -26,12 +26,12 @@ public class UsuarioEmprendimientoDTO {
 	@JsonProperty("descripcion")
 	private String descripcion;
 	@JsonProperty("categorias")
-	private List<Integer> categorias;
+	private List<Categoria> categorias;
 	@JsonProperty("precioManguito")
 	private Double precioManguito;
 	
 	
-	public UsuarioEmprendimientoDTO(String email,String password,Date fechaNac,Integer dni,String nombre,String banner,String descripcion,List<Integer>categorias,Double precioManguito) {
+	public UsuarioEmprendimientoDTO(String email,String password,Date fechaNac,Integer dni,String nombre,String banner,String descripcion,List<Categoria>categorias,Double precioManguito) {
 		this.categorias = categorias;
 		this.email = email;
 		this.password = password;
@@ -101,11 +101,11 @@ public class UsuarioEmprendimientoDTO {
 		this.descripcion = descripcion;
 	}
 
-	public List<Integer> getCategorias() {
+	public List<Categoria> getCategorias() {
 		return categorias;
 	}
 
-	public void setCategorias(List<Integer> categorias) {
+	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
 	}
 

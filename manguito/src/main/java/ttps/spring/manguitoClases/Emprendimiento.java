@@ -41,7 +41,7 @@ public class Emprendimiento{
 	@JsonBackReference
 	private Usuario duenio;
 	
-	@OneToMany(mappedBy = "emprendimiento", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "emprendimiento")
 	@JsonIgnore
 	private List<Plan> planes;
 	
@@ -50,11 +50,10 @@ public class Emprendimiento{
 	@JsonIgnore
 	private List<Post> posteos;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
 	@JoinTable(name = "emprendimiento_categorias",
     joinColumns = @JoinColumn(name = "emprendimiento_id"),
     inverseJoinColumns = @JoinColumn(name = "categoria_id")) 
-	@JsonIgnore
 	private List<Categoria> categorias;
 	
 	@ManyToMany

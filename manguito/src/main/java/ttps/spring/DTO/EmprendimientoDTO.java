@@ -4,7 +4,10 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import ttps.spring.manguitoClases.Categoria;
 import ttps.spring.manguitoClases.Emprendimiento;
+import ttps.spring.manguitoClases.MedioDePago;
+import ttps.spring.manguitoClases.RedSocial;
 
 public class EmprendimientoDTO {
 
@@ -12,7 +15,7 @@ public class EmprendimientoDTO {
 	private String banner;
 	@JsonProperty("descripcion")
 	private String descripcion;
-	@JsonProperty("facebook")
+	@JsonProperty("facebook") //List<RedSocial>
 	private String facebook;
 	@JsonProperty("twitter")
 	private String twitter;
@@ -20,30 +23,52 @@ public class EmprendimientoDTO {
 	private String instagram;
 	@JsonProperty("youtube")
 	private String youtube;
+	@JsonProperty("redes")
+	private List<RedSocial> redes;
 	@JsonProperty("categorias")
-	private List<Integer> categorias;
+	private List<Categoria> categorias;
 	@JsonProperty("topDonadores")
 	private Boolean topDonadores;
 	@JsonProperty("manguitosRecibidos")
 	private Boolean mangitosRecibidos;
+	@JsonProperty("pagosAceptados")
+	private List<MedioDePago> pagosAceptados;
 	
 	
-	public EmprendimientoDTO(String banner, String descripcion, String youtube, String facebook, String twitter, String instagram, List<Integer> categorias, Boolean topDonadores, Boolean mangitosRecibidos) {
+	public EmprendimientoDTO(String banner, String descripcion, String youtube, String facebook, String twitter, String instagram, List<Categoria> categorias, Boolean topDonadores, Boolean mangitosRecibidos, List<MedioDePago> pagosAceptados, List<RedSocial> redes) {
 		this.banner = banner;
 		this.descripcion = descripcion;
-		this.youtube = youtube;
+		/*this.youtube = youtube;
 		this.facebook = facebook;
 		this.twitter = twitter;
-		this.instagram = instagram;
+		this.instagram = instagram;*/
+		this.redes=redes;
 		this.categorias = categorias;
 		this.topDonadores = topDonadores;
 		this.mangitosRecibidos = mangitosRecibidos;
+		this.pagosAceptados = pagosAceptados;
 	}
 	
+	public List<MedioDePago> getPagosAceptados() {
+		return pagosAceptados;
+	}
+
+	public void setPagosAceptados(List<MedioDePago> pagosAceptados) {
+		this.pagosAceptados = pagosAceptados;
+	}
+
 	public EmprendimientoDTO() {}
 
 	public String getBanner() {
 		return banner;
+	}
+	
+	public List<RedSocial> getRedes() {
+		return redes;
+	}
+
+	public void setRedes(List<RedSocial> redes) {
+		this.redes = redes;
 	}
 
 	public void setBanner(String banner) {
@@ -90,11 +115,11 @@ public class EmprendimientoDTO {
 		this.youtube = youtube;
 	}
 
-	public List<Integer> getCategorias() {
+	public List<Categoria> getCategorias() {
 		return categorias;
 	}
 
-	public void setCategorias(List<Integer> categorias) {
+	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
 	}
 

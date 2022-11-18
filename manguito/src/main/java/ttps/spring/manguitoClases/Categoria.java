@@ -25,6 +25,11 @@ public class Categoria {
 	
 	public Categoria() {}
 
+	public Categoria(Long id) {
+		super();
+		this.Id = id;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}

@@ -1,4 +1,4 @@
-package ttps.spring.controllers;
+package ttps.spring.repositorios;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
